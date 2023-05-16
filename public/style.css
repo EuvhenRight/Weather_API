@@ -34,7 +34,13 @@ body {
     margin-right: 10%;
 }
 
-.wind, .humidity {
+.wind {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.humidity {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;

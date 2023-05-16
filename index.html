@@ -11,44 +11,8 @@
     <title>Widget Weather</title>
 </head>
 <body>
-    <div class="container">
-    <div class="weather_top">
-        <div class="weather_description">
-            <div class="wind"> km/h
-                <img src="./src/assets/weather_icons/animated/wind.png" alt="">
-            </div>
-            <div class="temperature">
-                <h1 class="celsius">25°C</h1>
-                <img class="icon_weather" src="./src/assets/weather_icons/animated/cloudy-day-1.svg" alt="">
-                <span class="status">Cloudy</span>
-            </div>
-            <div class="humidity"> %
-                <img src="./src/assets/weather_icons/animated/humidity.png" alt="">
-            </div>
-            </div>
-        </div>
-    <div class="weather_bottom">
-        <div class="loading">
-            <input type="text" placeholder="City, Country" id="input_city">
-            <button id="btn_search">Search</button>
-            <div class="city_viev">
-                <h1>City,Country</h1>
-            </div>
-        </div>
-            <div class="week">
-                <ul class="weekdays">
-                    <div class="weekday">Monday</div>
-                    <div class="weekday">Tuesday</div>
-                    <div class="weekday">Wednesday</div>
-                    <div class="weekday">Thursday</div>
-                    <div class="weekday">Friday</div>
-                    <div class="weekday">Saturday</div>
-                    <div class="weekday">Sunday</div>
-                </ul>
-                <div class="date">date</div>
-            </div>
-    </div>
-</div>
-<!-- <script src="script.js"></script>     -->
+   
+    <div id="user_interface" class="container"></div>
+    <script type="module" src="./app.js"></script>
 </body>
 </html>
