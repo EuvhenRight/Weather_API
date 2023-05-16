@@ -3,3 +3,77 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('../src/assets/cloudy_background.jpeg');
+    align-items: center;
+    color: white;
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+.container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, .25);
+    border-radius: 30px;
+    width: 65%;
+}
+
+.temperature {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.wind, .humidity {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.wind, .humidity img{
+    width: 50px;
+}
+
+.icon_weather {
+    width: 250px;
+}
+
+
+.weather_description {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.weather_top {
+   padding: 25px;
+}
+
+.weather_bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, .50);
+    padding: 25px;
+    border-radius: 0 0 30px 30px;
+}
+
+.weekdays {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.weekday {
+    margin: 20px;
+}

@@ -5,29 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./public/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@500&display=swap" rel="stylesheet">
     <title>Widget Weather</title>
 </head>
 <body>
-<div class="container">
-    <div class="date"></div>
-    <div class="weather">
-        <div class="temperature">
-            <img src="" alt="">
+    <div class="container">
+    <div class="weather_top">
+        <div class="weather_description">
+            <div class="wind"> km/h
+                <img src="./src/assets/weather_icons/animated/wind.png" alt="">
+            </div>
+            <div class="temperature">
+                <h1 class="celsius">25°C</h1>
+                <img class="icon_weather" src="./src/assets/weather_icons/animated/cloudy-day-1.svg" alt="">
+                <span class="status">Cloudy</span>
+            </div>
+            <div class="humidity"> %
+                <img src="./src/assets/weather_icons/animated/humidity.png" alt="">
+            </div>
+            </div>
         </div>
-        <span class="wind_speed"></span>
-        <span class="humidity"></span>
-    </div>
-    <div class="city">
+    <div class="weather_bottom">
+        <div class="loading">
             <input type="text" placeholder="City, Country" id="input_city">
-            <span class="city_viev"></span>
-            <div class="weekdays">
-                <span>Monday</span>
-                <span>Tuesday</span>
-                <span>Wednesday</span>
-                <span>Thursday</span>
-                <span>Friday</span>
-                <span>Saturday</span>
-                <span>Sunday</span>
+            <button id="btn_search">Search</button>
+            <div class="city_viev">
+                <h1>City,Country</h1>
+            </div>
+        </div>
+            <div class="week">
+                <ul class="weekdays">
+                    <div class="weekday">Monday</div>
+                    <div class="weekday">Tuesday</div>
+                    <div class="weekday">Wednesday</div>
+                    <div class="weekday">Thursday</div>
+                    <div class="weekday">Friday</div>
+                    <div class="weekday">Saturday</div>
+                    <div class="weekday">Sunday</div>
+                </ul>
+                <div class="date">date</div>
             </div>
     </div>
 </div>
