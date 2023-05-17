@@ -4,7 +4,11 @@ import { BUTTON_SEARCH_ID,
     ICON_WEATHER_ID, 
     TEMPERATURE_CELSIUS_ID, 
     WIND_SPEED_ID,
-    STATUS_WEATHER_ID } from "./constants.js";
+    STATUS_WEATHER_ID, 
+    DATA_ID,
+    INPUT_CITY_ID,
+    MAX_MIN_TEMPERATURE_ID,
+    TEMPERATURE_FEELS_ID} from "./constants.js";
 
 /**
  * Create the main screen
@@ -20,7 +24,9 @@ export const weatherInterface = () => {
                 <img src="./src/assets/weather_icons/animated/wind.png" alt="">
             </div>
             <div class="temperature">
-                <h1 id="${TEMPERATURE_CELSIUS_ID}" class="celsius">25°C</h1>
+                <h1 id="${TEMPERATURE_CELSIUS_ID}" class="celsius">--°C</h1>
+                <span id="${TEMPERATURE_FEELS_ID}"></span>
+                <span id="${MAX_MIN_TEMPERATURE_ID}"></span>
                 <img id="${ICON_WEATHER_ID}" class="icon_weather" src="./src/assets/weather_icons/animated/clear.svg" alt="">
                 <span id="${STATUS_WEATHER_ID}">Cloudy</span>
             </div>
@@ -32,7 +38,7 @@ export const weatherInterface = () => {
         </div>
     <div class="weather_bottom">
         <div class="loading">
-            <input type="text" placeholder="Search" id="input_city">
+            <input type="text" placeholder="Search" id="${INPUT_CITY_ID}">
             <button id="${BUTTON_SEARCH_ID}">Search</button>
             <div class="city_view">
                 <h1 id="${CITY_SEARCH_ID}"></h1>
@@ -48,10 +54,9 @@ export const weatherInterface = () => {
                     <div class="weekday">Saturday</div>
                     <div class="weekday">Sunday</div>
                 </ul>
-                <div class="date">date</div>
+                <div id="${DATA_ID}" class="date">date</div>
             </div>
-    </div>
-    `;
+    </div>`;
     
     return element;
   };

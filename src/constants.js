@@ -6,5 +6,9 @@ export const BUTTON_SEARCH_ID = 'button_search';
 export const WIND_SPEED_ID = 'wind_speed';
 export const HUMIDITY_ID = 'humidity';
 export const STATUS_WEATHER_ID = 'status';
+export const DATA_ID = 'data';
+export const INPUT_CITY_ID = 'input_city';
+export const MAX_MIN_TEMPERATURE_ID = 'max_min_temperature';
+export const TEMPERATURE_FEELS_ID = 'temperature_feels';
 
 export const weatherIcons = ['Clouds', 'Cloudy', 'Clear', 'Rain', 'Snow', 'Thunderstorm', 'Drizzle'];

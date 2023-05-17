@@ -8,7 +8,7 @@ body {
     display: flex;
     justify-content: center;
     height: 100vh;
-    background-image: url('../src/assets/cloudy_background.jpeg');
+    background-color: #eee;
     align-items: center;
     color: white;
     font-family: 'Merriweather Sans', sans-serif;
@@ -82,4 +82,8 @@ body {
 
 .weekday {
     margin: 20px;
+}
+
+.today {
+    font-style: italic;
 }

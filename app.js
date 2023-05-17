@@ -4,7 +4,7 @@ import {weatherSearch} from "./src/api.js";
 const loadApp = () => {
   
     initWeatherPage();
-    weatherSearch('Kyiv');
+    weatherSearch('London');
   };
   
   window.addEventListener('load', loadApp);
