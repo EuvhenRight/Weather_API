@@ -9,6 +9,7 @@ import {BUTTON_SEARCH_ID,
   STATUS_WEATHER_ID, 
   TEMPERATURE_CELSIUS_ID, 
   TEMPERATURE_FEELS_ID, 
+  weatherIcons, 
   WIND_SPEED_ID} from "../src/constants.js";
 
 import { weatherSearch } from "../src/api.js";
@@ -20,8 +21,8 @@ export const initWeatherPage = () => {
   
     const weatherElementApp = weatherInterface();
     userInterface.appendChild(weatherElementApp);
-  };
 
+  };
 
   //working logic
   export const userViewWeather = (data) => {
@@ -30,48 +31,49 @@ export const initWeatherPage = () => {
     const {temp, feels_like, temp_min, temp_max, humidity} = data.main;
     const {description, main} = data.weather[0];
     const {speed} = data.wind;
-
-    // change icon
-    if (main === undefined) {
-      document.getElementById(ICON_WEATHER_ID)
-    .src = `./src/assets/weather_icons/animated/default.svg`
-    }
-
-    document.getElementById(ICON_WEATHER_ID)
-    .src = `./src/assets/weather_icons/animated/${main}.svg`
+    console.log(data);
+  // change icon
+  weatherIcons.includes(main)
+  ?  document.getElementById(ICON_WEATHER_ID)
+  .src = `./src/assets/weather_icons/animated/${main}.svg`
+  : document.getElementById(ICON_WEATHER_ID)
+  .src = `./src/assets/weather_icons/animated/Cloudy.svg`
 
     // added weather date
  document.getElementById(CITY_SEARCH_ID).innerText = `${name.toUpperCase()}, ${country}`;
  document.getElementById(TEMPERATURE_CELSIUS_ID).innerText = `${Math.round(temp)} °C`;
- document.getElementById(TEMPERATURE_FEELS_ID).innerText = `feels: ${Math.round(feels_like)} °C`;
+ document.getElementById(TEMPERATURE_FEELS_ID).innerText = `feels ${Math.round(feels_like)} °C`;
  document.getElementById(MAX_MIN_TEMPERATURE_ID).innerText = `${Math.round(temp_min)} °C / ${Math.round(temp_max)} °C`;
  document.getElementById(HUMIDITY_ID).innerText = `${humidity} %`;
  document.getElementById(STATUS_WEATHER_ID).innerText = `${description.toUpperCase()}`;
  document.getElementById(WIND_SPEED_ID).innerText = `${Math.round(speed)} km/h`;
 
 // change background
-if (main === undefined) {
-  document.body.style.backgroundImage =
-  `url(./src/assets/backgrounds/default.png)`;
+weatherIcons.includes(main) 
+? document.body.style.backgroundImage = `url(./src/assets/backgrounds/${main}.jpeg)`
+: document.body.style.backgroundImage = `url(./src/assets/backgrounds/default.png)` 
+
+const searchFunc = () => {
+  const inputCity = document.getElementById(INPUT_CITY_ID);
+  const cityValue = inputCity.value.trim();
+  // Clear the input field
+  inputCity.value = '';
+
+
+  if (cityValue !== '') {
+  // Perform the weather search using the city value
+  weatherSearch(cityValue);
+  initWeatherPage()
+  }
 }
+const buttonSearch = document.getElementById(BUTTON_SEARCH_ID) 
 
- document.body.style.backgroundImage =
-      `url(./src/assets/backgrounds/${main}.jpeg)`;
 
-      const searchFunc = () => {
-        const inputCity = document.getElementById(INPUT_CITY_ID);
-        const cityValue = inputCity.value;
-      
-        // Clear the input field
-        inputCity.value = '';
-      
-        // Perform the weather search using the city value
-        weatherSearch(cityValue);
-      }
-      
-      document.getElementById(BUTTON_SEARCH_ID).addEventListener('click', () => {
-        searchFunc();
-      });
+buttonSearch.addEventListener('click', () => {
+
+  searchFunc();
+});
+    // search city function
 
   document.getElementById(INPUT_CITY_ID).addEventListener('keyup', (e) => {
     if (e.key === 'Enter') {
@@ -80,6 +82,7 @@ if (main === undefined) {
   });
 
 
+  // added date
 const getCreatedDate = (dateNow) => {
     let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -102,7 +105,7 @@ const addTodayClass = () => {
   const weekdays = document.querySelectorAll('.weekday');
   weekdays.forEach((weekday) => {
     if (weekday.innerText === now.toLocaleDateString('en-US', { weekday: 'long' })) {
-      weekday.classList.add('today');
+      weekday.classList.add('counter');
     }
   });
 }
