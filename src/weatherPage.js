@@ -49,6 +49,23 @@ export const initWeatherPage = () => {
  document.getElementById(STATUS_WEATHER_ID).innerText = `${description.toUpperCase()}`;
  document.getElementById(WIND_SPEED_ID).innerText = `${Math.round(speed)} km/h`;
 
+// change temperature C to F
+const temperatureElement = document.getElementById(TEMPERATURE_CELSIUS_ID);
+let isCelsius = true;
+
+temperatureElement.addEventListener('click', () => {
+  
+  if (isCelsius) {
+    const tempFahrenheit = (temp * 9/5) + 32;
+    temperatureElement.innerText = `${Math.round(tempFahrenheit)} °F`;
+    isCelsius = false;
+  } else {
+    document.getElementById(TEMPERATURE_CELSIUS_ID).innerText = `${Math.round(temp)} °C`;
+    isCelsius = true;
+  }
+  
+});
+
 // change background
 weatherIcons.includes(main) 
 ? document.body.style.backgroundImage = `url(./src/assets/backgrounds/${main}.jpeg)`
@@ -124,6 +141,7 @@ export const jokeProgramming = (jokeData) => {
     document.body.prepend(element); 
     }
 
+    // animation
     const convertToHtml = (jokeData) => {
       let words = jokeData.joke.split(' ');
       let html = "<h3>\n";

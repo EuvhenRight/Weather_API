@@ -31,6 +31,6 @@ export const jokeSearch = async () =>{
         const jokeData = await response.json();
             jokeProgramming(jokeData);
     } catch (error) {
-    console.log(error.message);
+        console.log(error);
     }
 }
