@@ -52,6 +52,7 @@ body {
 
 #temperature_celsius {
     font-size: 5rem;
+    cursor: pointer;
 }
 
 #humidity, #max_min_temperature, #wind_speed, #temperature_feels, #date{
