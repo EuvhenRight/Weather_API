@@ -29,9 +29,7 @@ export const jokeSearch = async () =>{
     try {
         const response = await fetch('https://v2.jokeapi.dev/joke/Programming?type=single')
         const jokeData = await response.json();
-        setTimeout(() => {
             jokeProgramming(jokeData);
-        }, 2000);
     } catch (error) {
     console.log(error.message);
     }
