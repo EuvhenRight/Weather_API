@@ -8,7 +8,8 @@ import { BUTTON_SEARCH_ID,
     DATA_ID,
     INPUT_CITY_ID,
     MAX_MIN_TEMPERATURE_ID,
-    TEMPERATURE_FEELS_ID} from "./constants.js";
+    TEMPERATURE_FEELS_ID,
+    JOKE_ID} from "../constants.js";
 
 /**
  * Create the main screen
@@ -22,6 +23,7 @@ export const weatherInterface = () => {
             <div class="wind">
             <span id="${WIND_SPEED_ID}" class="counter">--km/h</span> 
                 <img src="./src/assets/weather_icons/animated/wind.png" alt="wind">
+                <br>wind speed</br>
             </div>
             <div class="temperature">
                 <h1 id="${TEMPERATURE_CELSIUS_ID}" class="counter">--°C</h1>
@@ -33,13 +35,17 @@ export const weatherInterface = () => {
             <div class="humidity">
             <span id="${HUMIDITY_ID}" class="counter">--%</span>
                 <img src="./src/assets/weather_icons/animated/humidity.png" alt="humidity">
+                <br>humidity</br>
             </div>
             </div>
         </div>
     <div class="weather_bottom">
         <div class="loading">
+        <span id="${DATA_ID}">--</span>
+        <div class="city_input">
             <input type="text" placeholder="City, Country" id="${INPUT_CITY_ID}">
-            <button id="${BUTTON_SEARCH_ID}" class="counter type="button"><i class="fa fa-search fa-2x" aria-hidden="true"></i></button>
+            <button id="${BUTTON_SEARCH_ID}" class="counter type="button"><i class="fa fa-search fa-1x" aria-hidden="true"></i></button>
+        </div>
         </div>
             <div class="week">
                 <ul class="weekdays">
@@ -52,10 +58,9 @@ export const weatherInterface = () => {
                     <div class="weekday">Sunday</div>
                 </ul>
                 <div class="city_view">
-                <span id="${DATA_ID}" class="counter"">--</span>
                 <h1 id="${CITY_SEARCH_ID}" class="counter">--></h1>
             </div>
-            </div>
+         </div>
     </div>`;
     
     return element;

@@ -1,18 +1,19 @@
-import {weatherInterface} from "../src/weatherView.js";
+import {weatherInterface} from "./components/weatherView.js";
 import {BUTTON_SEARCH_ID, 
   CITY_SEARCH_ID, 
   DATA_ID, 
   HUMIDITY_ID, 
   ICON_WEATHER_ID, 
   INPUT_CITY_ID, 
+  JOKE_ID, 
   MAX_MIN_TEMPERATURE_ID, 
   STATUS_WEATHER_ID, 
   TEMPERATURE_CELSIUS_ID, 
   TEMPERATURE_FEELS_ID, 
   weatherIcons, 
-  WIND_SPEED_ID} from "../src/constants.js";
+  WIND_SPEED_ID} from "./constants.js";
 
-import { weatherSearch } from "../src/api.js";
+import { jokeSearch, weatherSearch } from "./api.js";
 
 
 export const initWeatherPage = () => {
@@ -59,18 +60,16 @@ const searchFunc = () => {
   // Clear the input field
   inputCity.value = '';
 
-
   if (cityValue !== '') {
   // Perform the weather search using the city value
   weatherSearch(cityValue);
   initWeatherPage()
+  jokeSearch()
   }
 }
 const buttonSearch = document.getElementById(BUTTON_SEARCH_ID) 
 
-
 buttonSearch.addEventListener('click', () => {
-
   searchFunc();
 });
     // search city function
@@ -105,11 +104,24 @@ const addTodayClass = () => {
   const weekdays = document.querySelectorAll('.weekday');
   weekdays.forEach((weekday) => {
     if (weekday.innerText === now.toLocaleDateString('en-US', { weekday: 'long' })) {
-      weekday.classList.add('counter');
+      weekday.classList.add('today');
     }
   });
 }
 
 addTodayClass();
 
+}
+
+
+export const jokeProgramming = (jokeData) => {
+   
+  let jokeElement = document.getElementById(JOKE_ID);
+   
+    if (!jokeElement) {
+    const element = document.createElement('div');
+    element.id='joke';
+    document.body.prepend(element); 
+    }
+    jokeElement.innerText = `"${jokeData.joke}"`;
 }

@@ -10,5 +10,6 @@ export const DATA_ID = 'date';
 export const INPUT_CITY_ID = 'input_city';
 export const MAX_MIN_TEMPERATURE_ID = 'max_min_temperature';
 export const TEMPERATURE_FEELS_ID = 'temperature_feels';
+export const JOKE_ID = 'joke';
 
 export const weatherIcons = ['Clouds', 'Cloudy', 'Clear', 'Rain', 'Snow', 'Thunderstorm', 'Drizzle', 'Mist'];
