@@ -10,7 +10,7 @@ import {BUTTON_SEARCH_ID,
   TEMPERATURE_CELSIUS_ID, 
   TEMPERATURE_FEELS_ID, 
   weatherIcons, 
-  WIND_SPEED_ID} from "./constants.js";
+  WIND_SPEED_ID} from "./components/constants.js";
 
 import { searchFunc } from "./components/search.js";
 import { addTodayClass, getCreatedDate } from "./components/date.js";
@@ -45,37 +45,38 @@ export const initWeatherPage = () => {
 
 // TODO: added weather data
 
-  const temperatureElement = document.getElementById(TEMPERATURE_CELSIUS_ID);
-  const temperatureFeelsElement = document.getElementById(TEMPERATURE_FEELS_ID);
-  const temperatureMinMaxElement = document.getElementById(MAX_MIN_TEMPERATURE_ID);
+const temperatureCelsiusElement = document.getElementById(TEMPERATURE_CELSIUS_ID);
+const temperatureFeelsElement = document.getElementById(TEMPERATURE_FEELS_ID);
+const temperatureMinMaxElement = document.getElementById(MAX_MIN_TEMPERATURE_ID);
 
- document.getElementById(CITY_SEARCH_ID).innerText = `${name.toUpperCase()}, ${country}`;
+document.getElementById(CITY_SEARCH_ID).innerText = `${name.toUpperCase()}, ${country}`;
  
- temperatureElement.innerText = `${Math.round(temp)} °C`;
+ temperatureCelsiusElement.innerText = `${Math.round(temp)} °C`;
  temperatureFeelsElement.innerText = `feels ${Math.round(feels_like)} °C`;
- temperatureMinMaxElement.innerText = `${Math.round(temp_min)} °C / ${Math.round(temp_max)} °C`;
+ temperatureMinMaxElement.innerText = `min ${Math.round(temp_min)} °C / max ${Math.round(temp_max)} °C`;
  document.getElementById(HUMIDITY_ID).innerText = `${humidity} %`;
  document.getElementById(STATUS_WEATHER_ID).innerText = `${description.toUpperCase()}`;
  document.getElementById(WIND_SPEED_ID).innerText = `${Math.round(speed)} km/h`;
 
 // TODO: change temperature C to F
 
-let isCelsius = true;
+const updateTemperature = (temp, feels_like, temp_min, temp_max, isCelsius) => {
+  const formatTemperature = (value) => (isCelsius ? `${Math.round(value)} °C` : `${Math.round(value * 9/5) + 32} °F`);
 
-temperatureElement.addEventListener('click', () => {
-  
-  if (isCelsius) {
-    temperatureElement.innerText = `${Math.round(temp * 9/5) + 32} °F`;
-    temperatureFeelsElement.innerText = `feels ${Math.round(feels_like* 9/5) + 32} °F`;
-    temperatureMinMaxElement.innerText = `${Math.round(temp_min * 9/5) + 32} °F / ${Math.round(temp_max * 9/5) + 32} °F`;
-    isCelsius = false;
-  } else {
-    temperatureElement.innerText = `${Math.round(temp)} °C`;
-    temperatureFeelsElement.innerText = `feels ${Math.round(feels_like)} °C`;
-    temperatureMinMaxElement.innerText = `${Math.round(temp_min)} °C / ${Math.round(temp_max)} °C`;
-    isCelsius = true;
-  }
-});
+  temperatureCelsiusElement.innerText = formatTemperature(temp);
+  temperatureFeelsElement.innerText = `feels ${formatTemperature(feels_like)}`;
+  temperatureMinMaxElement.innerText = `min ${formatTemperature(temp_min)} / max ${formatTemperature(temp_max)}`;
+};
+
+const toggleTemperatureUnit = () => {
+  isCelsius = !isCelsius;
+  updateTemperature(temp, feels_like, temp_min, temp_max, isCelsius);
+};
+
+temperatureCelsiusElement.addEventListener('click', toggleTemperatureUnit);
+
+let isCelsius = true;
+updateTemperature(temp, feels_like, temp_min, temp_max, isCelsius);
 
 // TODO:change background
 
@@ -85,18 +86,16 @@ weatherIcons.includes(main)
 
 // TODO: search city function
 
-const buttonSearch = document.getElementById(BUTTON_SEARCH_ID) 
+const searchButton = document.getElementById(BUTTON_SEARCH_ID);
+const inputCity = document.getElementById(INPUT_CITY_ID);
 
-buttonSearch.addEventListener('click', () => {
-  searchFunc();
+searchButton.addEventListener('click', searchFunc);
+
+inputCity.addEventListener('keyup', (e) => {
+  if (e.key === 'Enter') {
+    searchFunc();
+  }
 });
-
-  document.getElementById(INPUT_CITY_ID).addEventListener('keyup', (e) => {
-    if (e.key === 'Enter') {
-      searchFunc();
-    }
-  });
-
 
 // TODO: added date
   let now = new Date();

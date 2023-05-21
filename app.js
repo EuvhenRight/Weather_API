@@ -1,5 +1,7 @@
-import {initWeatherPage} from "./src/weatherPage.js";
-import {jokeSearch, weatherSearch} from "./src/api.js";
+import { jokeSearch, weatherSearch } from "./src/components/api.js";
+import { initWeatherPage } from "./src/weatherPage.js";
+
+
 
 const loadApp = () => {
   

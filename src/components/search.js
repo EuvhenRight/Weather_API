@@ -1,5 +1,5 @@
-import { jokeSearch, weatherSearch } from "../api.js";
-import { INPUT_CITY_ID } from "../constants.js";
+import { jokeSearch, weatherSearch } from "./api.js";
+import { INPUT_CITY_ID } from "./constants.js";
 import { initWeatherPage } from "../weatherPage.js";
 
 

@@ -1,4 +1,4 @@
-import { JOKE_ID } from "../constants.js";
+import { JOKE_ID } from "./constants.js";
 
 // TODO: Joke function
 export const jokeProgramming = (jokeData) => {

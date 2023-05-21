@@ -1,4 +1,5 @@
 
+// TODO: Add date this app
 
 export const getCreatedDate = (dateNow) => {
     let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -14,6 +15,7 @@ export const getCreatedDate = (dateNow) => {
     return `${date} ${month} ${year}`;
   }
 
+  // TODO: add today class with weekday
 
   export const addTodayClass = (date) => {
     const weekdays = document.querySelectorAll('.weekday');

@@ -101,6 +101,7 @@ body {
     font-weight: 300;
     margin-top: 6px;
     transition: all 3s 1s;
+    width: 82%;
 }
 
 .humidity, .wind {
