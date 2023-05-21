@@ -276,9 +276,7 @@ body {
     }
 
     @media (orientation: landscape) {
-        body {
-            height: auto;
-        }
+        
         .weather_description {
             display: flex;
             justify-content: center;
@@ -294,6 +292,7 @@ body {
             margin-top: 6px;
             width: auto;
             font-size: 10px;
+            margin-top: 25px;
         }
         .temperature {
             display: flex;
@@ -349,8 +348,6 @@ body {
 
     body {
         background-size: auto;
-        height: auto;
-        width: auto;
     }
     
 
@@ -419,7 +416,7 @@ body {
     }
 
     .icon_weather {
-        width: 150px;
+        width: 200px;
     }
 
    .weekday {

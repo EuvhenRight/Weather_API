@@ -22,7 +22,11 @@ export const weatherSearch = async (city) =>{
     } catch (error) {
         console.log(error);
         const errorElement = document.getElementById('city_search')
-        errorElement.innerText = error.message;
+        if (error.message === 'City not found') {
+            errorElement.innerText = 'Error 404: City not found. Please check the spelling and try again.';
+        } else {
+            errorElement.innerText = 'An error occurred. Please try again later.';
+        }
     }
 }
 
@@ -32,6 +36,8 @@ export const jokeSearch = async () =>{
         const jokeData = await response.json();
             jokeProgramming(jokeData);
     } catch (error) {
-        console.log(error);
+        const errorElement = document.getElementById('joke')
+        console.log(error.message);
+        errorElement.innerText = error.message;
     }
 }
