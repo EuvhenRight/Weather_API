@@ -5,7 +5,6 @@ import {BUTTON_SEARCH_ID,
   HUMIDITY_ID, 
   ICON_WEATHER_ID, 
   INPUT_CITY_ID, 
-  JOKE_ID, 
   MAX_MIN_TEMPERATURE_ID, 
   STATUS_WEATHER_ID, 
   TEMPERATURE_CELSIUS_ID, 
@@ -41,7 +40,7 @@ export const initWeatherPage = () => {
   ?  document.getElementById(ICON_WEATHER_ID)
   .src = `./src/assets/weather_icons/animated/${main}.svg`
   : document.getElementById(ICON_WEATHER_ID)
-  .src = `./src/assets/weather_icons/animated/Cloudy.svg`
+  .src = `./src/assets/weather_icons/animated/Mist.svg`
 
 
 // TODO: added weather data
