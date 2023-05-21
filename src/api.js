@@ -1,4 +1,5 @@
-import { jokeProgramming, userViewWeather } from "./weatherPage.js";
+import { jokeProgramming } from "./components/joke.js";
+import { userViewWeather } from "./weatherPage.js";
 
 let apiKey = 'af8ca98273d82bd5c384cedecf0f696c';
 

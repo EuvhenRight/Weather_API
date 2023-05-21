@@ -6,7 +6,6 @@ const loadApp = () => {
     initWeatherPage();
     weatherSearch('Amsterdam');
     jokeSearch();
-    console.log(jokeSearch())
   };
   
   window.addEventListener('load', loadApp);
