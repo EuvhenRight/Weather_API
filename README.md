@@ -2,5 +2,4 @@
 
 ## Welcome to my project JokeWeather
 
-! [screenShot]
-(assets/other/screenShot.png)
+![screenShot](/src/assets/other/screenShot.png)
