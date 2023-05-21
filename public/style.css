@@ -232,7 +232,7 @@ body {
 }
 
 /* Medium devices (landscape tablets, 768px and max-width 1023px) */
-@media screen and (min-width: 768px) and (max-width: 1023px) {
+@media screen and (min-width: 900px) and (max-width: 1023px) {
     .container {
         display: flex;
         width: 82%;
@@ -350,7 +350,7 @@ body {
 }
 
  /* Small devices (phones, 767px and down) */
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 899px) {
 
     body {
         background-size: auto;
