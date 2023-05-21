@@ -276,6 +276,11 @@ body {
     }
 
     @media (orientation: landscape) {
+
+        body {
+            width: auto;
+            height: auto;
+        }
         
         .weather_description {
             display: flex;
@@ -386,6 +391,7 @@ body {
    
     body {
         background-size: auto;
+        height: auto;
     }
 
     .user_interface {
@@ -412,6 +418,7 @@ body {
     }
 
     #temperature_celsius {
+        margin-top: 25px;
         font-size: 3rem;
     }
 
@@ -440,7 +447,7 @@ body {
         display: flex;
         flex-direction: row;
         align-items: flex-start;
-        padding: 3px;
+        padding: 10px;
    }
 
    .loading {
