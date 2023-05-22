@@ -254,6 +254,7 @@ body {
 
     body {
         width: auto;
+        height: auto;
     }
     
     .weather_description {
@@ -353,6 +354,7 @@ body {
             flex-direction: column-reverse;
             justify-content: center;
             align-items: center;
+            height: auto;
         }
         
         .weather_description {
@@ -478,6 +480,7 @@ body {
 
     body {
         background-size: auto;
+        height: auto;
     }
 
     .container {
