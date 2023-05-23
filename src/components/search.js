@@ -1,4 +1,4 @@
-import { jokeSearch, weatherSearch } from "./api.js";
+import { getWeather } from "./api.js";
 import { INPUT_CITY_ID } from "./constants.js";
 import { initWeatherPage } from "../weatherPage.js";
 
@@ -12,8 +12,7 @@ export const searchFunc = () => {
   
     if (cityValue !== '') {
     // Perform the weather search using the city value
-    weatherSearch(cityValue);
+    getWeather(cityValue);
     initWeatherPage();
-    jokeSearch();
     }
   }

@@ -3,39 +3,47 @@ import { userViewWeather } from "../weatherPage.js";
 
 let apiKey = 'af8ca98273d82bd5c384cedecf0f696c';
 
+export const getJoke = async () =>{
+    try {
+        const jokeResponse = await fetch('https://v2.jokeapi.dev/joke/Programming?type=single');
 
-export const weatherSearch = async (city) =>{
+        if (!jokeResponse.ok) {
+            throw new Error(`Error: Failed to fetch. Status: ${jokeResponse.status}`);
+          }
+        console.log(jokeResponse.statusText);
+        const data = await jokeResponse.json();
+            jokeProgramming(data);
+    } catch (error) {
+        const element = document.createElement('div');
+        element.id='joke';
+        document.body.prepend(element); 
+        const errorElement = document.getElementById('joke')
+        console.log(error);
+        errorElement.innerText = error;
+    }
+}
+
+export const getWeather = async (city) =>{
     try {
         document.getElementById('city_search').innerText = 'Loading...';
         document.body.style.backgroundImage = 'none';
 
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},&units=metric&appid=${apiKey}`);
-        if (!response.ok) {
+        const weatherResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},&units=metric&appid=${apiKey}`);
+        if (!weatherResponse.ok) {
            
-            throw new Error('Wrong city');
+            throw new Error(`${weatherResponse.status} ${weatherResponse.statusText}`);
         }
-        const data = await response.json();
+        const data = await weatherResponse.json();
         userViewWeather(data);
-        
+        await getJoke();
+
     } catch (error) {
         console.log(error);
-        const errorElement = document.getElementById('city_search')
-        if (error.message === 'Wrong city') {
-            errorElement.innerText = 'Error 404: City not found. Please check the spelling and try again.';
-        } else {
-            errorElement.innerText = 'An error occurred. Please try again later.';
-        }
-    }
-}
-
-export const jokeSearch = async () =>{
-    try {
-        const response = await fetch('https://v2.jokeapi.dev/joke/Programming?type=single')
-        const jokeData = await response.json();
-            jokeProgramming(jokeData);
-    } catch (error) {
-        const errorElement = document.getElementById('joke')
-        console.log(error.message);
-        errorElement.innerText = error.message;
+        const jokeElement = document.getElementById('joke');
+        jokeElement ? jokeElement.remove() : null;
+        const errorElement = document.getElementById('city_search');
+        errorElement.style.fontSize = '1,5rem';
+        errorElement.style.color = 'red';
+        errorElement.innerText = error;
     }
 }

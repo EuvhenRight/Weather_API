@@ -1,4 +1,4 @@
-import { jokeSearch, weatherSearch } from "./src/components/api.js";
+import { getJoke, getWeather } from "./src/components/api.js";
 import { initWeatherPage } from "./src/weatherPage.js";
 
 
@@ -6,8 +6,7 @@ import { initWeatherPage } from "./src/weatherPage.js";
 const loadApp = () => {
   
     initWeatherPage();
-    weatherSearch('Amsterdam');
-    jokeSearch();
+    getWeather('Amsterdam');
   };
   
   window.addEventListener('load', loadApp);
