@@ -8,8 +8,7 @@ import { BUTTON_SEARCH_ID,
     DATA_ID,
     INPUT_CITY_ID,
     MAX_MIN_TEMPERATURE_ID,
-    TEMPERATURE_FEELS_ID,
-    JOKE_ID} from "../constants.js";
+    TEMPERATURE_FEELS_ID } from "./constants.js";
 
 /**
  * Create the main screen
@@ -22,19 +21,19 @@ export const weatherInterface = () => {
         <div class="weather_description">
             <div class="wind">
             <span id="${WIND_SPEED_ID}" class="counter">--km/h</span> 
-                <img src="./src/assets/weather_icons/animated/wind.png" alt="wind">
+                <img src="./src/assets/other/wind.png" alt="wind">
                 <br>wind speed</br>
             </div>
             <div class="temperature">
                 <h1 id="${TEMPERATURE_CELSIUS_ID}" class="counter">--°C</h1>
                 <span id="${TEMPERATURE_FEELS_ID}" class="counter"></span>
                 <span id="${MAX_MIN_TEMPERATURE_ID}" class="counter"></span>
-                <img id="${ICON_WEATHER_ID}" class="icon_weather" src="./src/assets/weather_icons/animated/default.png" alt="icon_weather">
+                <img id="${ICON_WEATHER_ID}" class="icon_weather" src="./src/assets/other/default.png" alt="icon_weather">
                 <span id="${STATUS_WEATHER_ID}">--</span>
             </div>
             <div class="humidity">
             <span id="${HUMIDITY_ID}" class="counter">--%</span>
-                <img src="./src/assets/weather_icons/animated/humidity.png" alt="humidity">
+                <img src="./src/assets/other/humidity.png" alt="humidity">
                 <br>humidity</br>
             </div>
             </div>

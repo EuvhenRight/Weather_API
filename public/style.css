@@ -1,3 +1,5 @@
+
+/* main screen */
 * {
     margin: 0;
     padding: 0;
@@ -19,6 +21,8 @@ body {
     background-size: cover;
 }
 
+/* animation styles */
+
 @keyframes body {
     0% {
       text-shadow: 0 0 0 rgba(0, 0, 0, 0);
@@ -35,7 +39,7 @@ body {
     flex-direction: column;
     background-color: rgba(0, 0, 0, .25);
     border-radius: 30px;
-    width: 65%;
+    width: 90%;
     backdrop-filter: blur(6px);
 }
 
@@ -94,9 +98,11 @@ body {
 #joke {
     font-size: 16px;
     font-style: italic;
-    font-weight: 300;
     margin-top: 6px;
     transition: all 3s 1s;
+    width: 82%;
+    text-align: center;
+    color: black;
 }
 
 .humidity, .wind {
@@ -188,6 +194,7 @@ body {
     border: white;  
   }
   
+/* animation joke */
 
   @keyframes fade-in {
     100% {
@@ -218,76 +225,154 @@ body {
 
   /* Mobile layout */
 
-  /* large devices (landscape tablets, 1024px and up) */
-@media screen and (min-width: 1024px) {
+  /* Large screens */
+
+ @media (max-width: 1024px) {
+
     .container {
-        width: 82%;
-    }
-}
-
-/* Medium devices (landscape tablets, 768px and max-width 1023px) */
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-    .container {
-        display: flex;
-        width: 82%;
-        height: 80%;
-    }
-
-    #joke {
-        width: 82%;
-        margin-top: 10px;
-    }
-
-    .loading {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    .weather_top {
-        height: 82%;
+        width: 90%;
     }
 
     .weather_bottom {
-        display: block;
+        align-items: flex-start;
         background-color: rgba(0, 0, 0, .70);
-        padding: 16px;
-        border-radius: 0 0 30px 30px;
+        padding: 10px;
+        flex-direction: row;
+        justify-content: center;
+        border-radius: 30px;
     }
     .weekdays {
         display: flex;
-        margin-bottom: 16px;
-        align-items: center;
-        flex-direction: row;
-        font-weight: 300;
-        justify-content: center;
+        margin-bottom: 6px;
+        flex-direction: column;
     }
-    .city_view {
+
+    .weekday {
+        margin: 6px;
+    }
+
+    @media (orientation: landscape) {
+
+    body {
+        width: auto;
+        height: auto;
+    }
+    
+    .weather_description {
         display: flex;
         justify-content: center;
     }
-    .city_input {
-        margin-top: 8px;
+
+    .weather_top {
+        padding: 6px;
     }
+
+    .weather_bottom {
+        display: flex;
+        padding: 0;
+        border-radius: 0;
+    }
+
+    #joke {
+        width: auto;
+        font-size: 12px;
+        margin-top: 6px;
+    }
+    .temperature {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        flex-direction: row;
+        margin: 0;
+    }
+
+    #temperature_celsius {
+        font-size: 4rem;
+    }
+
+    .icon_weather {
+        width: 240px;
+    }
+
+    .container {
+        display: flex;
+        width: 100%;
+        background: none;
+    }
+   
+    #button-search {
+        font-size: 14px;
+    }
+    .weekdays {
+        flex-direction: row;
+    }
+
+    .loading {
+        padding: 6px;
+    }
+}
+
+ /* Medium screens */
+
+ @media (max-width: 768px) {
+
+    .container {
+        width: 90%;
+    }
+
+    .icon_weather {
+        width: 250px;
+    }
+
+    #temperature_celsius {
+        font-size: 4rem;
+    }
+
+    .weather_bottom {
+        align-items: flex-start;
+        background-color: rgba(0, 0, 0, .70);
+        padding: 10px;
+        flex-direction: row;
+        justify-content: center;
+        border-radius: 30px;
+    }
+    .weekdays {
+        display: flex;
+        margin-bottom: 6px;
+        flex-direction: column;
+    }
+
+    .weekday {
+        margin: 6px;
+    }
+
     @media (orientation: landscape) {
+
         body {
+            background-size: auto;
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: center;
+            align-items: center;
             height: auto;
         }
+        
         .weather_description {
             display: flex;
             justify-content: center;
         }
-
+    
         .weather_bottom {
             display: flex;
             padding: 0;
             border-radius: 0;
         }
-
+    
         #joke {
-            margin-top: 6px;
             width: auto;
             font-size: 10px;
+            margin-top: 6px;
         }
         .temperature {
             display: flex;
@@ -295,163 +380,159 @@ body {
             text-align: center;
             align-items: center;
             flex-direction: row;
-            margin-left: 5%;
-            margin-right: 5%;
+            margin: 0;
         }
-
+    
         #temperature_celsius {
             font-size: 3rem;
         }
-
+    
         .icon_weather {
-            width: 200px;
+            width: 240px;
         }
-        #status {
-            font-size: 1rem;
-        }
-
-        #date {
-            margin: 0;
-            font-size: 12px;
-        }
-        .weekdays {
-            display: flex;
-        }
-        .city_view {
-            display: flex;
-            justify-content: center;
-        }
+    
         .container {
             display: flex;
             width: 100%;
             background: none;
         }
-        #city_search {
-            font-size: 1.5rem;
-        }
-        .weather_top {
-            padding: 0;
-        }
+       
         #button-search {
-            font-size: 14px;
+            font-size: 10px;
+            padding: 2px;
         }
-    }
-}
-
- /* Extra small devices (phones, 767px and down) */
-@media only screen and (max-width: 767px) {
-
-    body {
-        background-size: auto;
-        height: auto;
-    }
+        .weekdays {
+            flex-direction: row;
+            font-size: 12px;
+        }
     
+        .loading {
+            padding: 6px;
+        }
 
-    .weather_bottom {
-        flex-direction: column;
-    }
+        #input_city {
+            padding: 6px;
+        }
 
-    .loading {
-        display: flex;
-        align-items: flex-start;
-        flex-direction: column;
-    }
+        #city_search {
+            font-size: 2rem;
+        }
 
-    #joke {
-        width: 82%;
-        margin-top: 10px;
-    }
+        #status {
+            font-size: 1rem;
+        }
 
-    #date{
-        margin-bottom: 16px;
     }
-    .container {
-        width: 90%;
-        height: 82%;
-        background-color: transparent;
-        border-radius: 0;
-    }
+ }
 
-    .city_view {
-        justify-content: center;
-    }
-}
+  /* Small screens */
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (max-width: 414px) {
-   
+ @media (max-width: 640px) {
+
     body {
         background-size: auto;
-        height: auto;
-    }
-
-    .user_interface {
-        background-color: none;
-    }
-
-    .weather_description {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
     }
 
     .container {
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0);
+        border-radius: 0; 
         width: 100%;
-        background-color: none;
-    }
-
-    .wind, .humidity {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-        font-weight: 300;
-    }
-
-    #temperature_celsius {
-        font-size: 3rem;
+        backdrop-filter: blur(0);  
     }
 
     .icon_weather {
-        width: 210px;
+        width: 220px;
     }
 
-   .weekday {
-        margin: 3px;
-   }
-   .weekdays {
+    .weather_bottom {
+        align-items: flex-start;
+        background-color: rgba(0, 0, 0, .70);
+        padding: 10px;
+        flex-direction: row;
+        justify-content: center;
+        border-radius: 0;
+    }
+    .weekdays {
         display: flex;
-        align-items: center;
+        margin-bottom: 6px;
         flex-direction: column;
-        font-weight: 300;
-   }
+    }
 
-   .temperature {
+    .weekday {
+        margin: 3px;
+    }
+
+    #city_search, #status {
+        font-size: 1.5rem;
+        margin-bottom: 6px;
+    }
+
+
+    #temperature_celsius {
+        font-size: 4rem;
+    }
+    
+ }
+
+  /* Extra small screens */
+
+ @media (max-width: 475px) {
+
+    body {
+        background-size: auto;
+        height: auto;
+    }
+
+    .container {
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0);
+        border-radius: 0; 
+        width: 100%;
+        backdrop-filter: blur(0);  
+    }
+
+    .icon_weather {
+        width: 200px;
+    }
+
+    .weather_bottom {
+        align-items: flex-start;
+        background-color: rgba(0, 0, 0, .70);
+        padding: 6px;
+        flex-direction: row;
+        justify-content: center;
+        border-radius: 0;
+    }
+    .weekdays {
+        display: flex;
+        margin-bottom: 4px;
+        flex-direction: column;
+    }
+
+    .weekday {
+        margin: 3px;
+    }
+
+    #city_search, #status {
+        font-size: 1.5rem;
+        margin-bottom: 6px;
+    }
+
+    .temperature {
         margin: 0;
-   }
+    }
 
-   .weather_bottom {
-       padding: 0;
-       border-radius: 0;
-   }
+    #temperature_celsius {
+        font-size: 4rem;
+    }
 
-   .loading {
-       align-items: center;
-   }
-   #date {
-       margin: 8px;
-   }
+    .weather_top {
+        padding: 0;
+    }
 
-   #joke h3 {
-        font-size: 14px;   
-   }
-
-   #city_search {
-       font-size: 1.5rem;
-   }
-   
-   .weather_top {
-       padding: 0;
-   }
+    #joke {
+        width: 95%;
+    }
+ }
 }
-

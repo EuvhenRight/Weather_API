@@ -1,12 +1,12 @@
-import {initWeatherPage} from "./src/weatherPage.js";
-import {jokeSearch, weatherSearch} from "./src/api.js";
+import { getJoke, getWeather } from "./src/components/api.js";
+import { initWeatherPage } from "./src/weatherPage.js";
+
+
 
 const loadApp = () => {
   
     initWeatherPage();
-    weatherSearch('Amsterdam');
-    jokeSearch();
-    console.log(jokeSearch())
+    getWeather('Amsterdam');
   };
   
   window.addEventListener('load', loadApp);
