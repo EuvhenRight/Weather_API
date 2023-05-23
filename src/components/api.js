@@ -8,9 +8,8 @@ export const getJoke = async () =>{
         const jokeResponse = await fetch('https://v2.jokeapi.dev/joke/Programming?type=single');
 
         if (!jokeResponse.ok) {
-            throw new Error(`Error: Failed to fetch. Status: ${jokeResponse.status}`);
+            throw new Error(` ${jokeResponse.status}: ${jokeResponse.statusText}`);
           }
-        console.log(jokeResponse.statusText);
         const data = await jokeResponse.json();
             jokeProgramming(data);
     } catch (error) {
@@ -18,8 +17,12 @@ export const getJoke = async () =>{
         element.id='joke';
         document.body.prepend(element); 
         const errorElement = document.getElementById('joke')
-        console.log(error);
-        errorElement.innerText = error;
+        if (error instanceof TypeError && error.message.includes('Failed to fetch')) {
+            errorElement.innerText = 'Error: Please check your internet connection.';
+          } else {
+            console.log(error);
+            errorElement.innerText = error;
+          }
     }
 }
 
@@ -38,12 +41,16 @@ export const getWeather = async (city) =>{
         await getJoke();
 
     } catch (error) {
-        console.log(error);
         const jokeElement = document.getElementById('joke');
         jokeElement ? jokeElement.remove() : null;
         const errorElement = document.getElementById('city_search');
-        errorElement.style.fontSize = '1,5rem';
+        errorElement.style.fontSize = '1.3rem';
         errorElement.style.color = 'red';
-        errorElement.innerText = error;
+        if (error instanceof TypeError && error.message.includes('Failed to fetch')) {
+            errorElement.innerText = 'Error: Please check your internet connection.';
+          } else {
+            console.log(error);
+            errorElement.innerText = error;
+          }
     }
 }
