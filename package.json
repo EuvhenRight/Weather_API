@@ -1,0 +1,19 @@
+{
+  "name": "weather_project",
+  "version": "1.0.0",
+  "description": "### \"Think about the weather and smile!\"",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EuvhenRight/Weather_API.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EuvhenRight/Weather_API/issues"
+  },
+  "homepage": "https://github.com/EuvhenRight/Weather_API#readme"
+}
