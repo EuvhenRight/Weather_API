@@ -3,7 +3,7 @@
 
 ### "Think about the weather and smile!"
 
- - 🔭 I’m currently working on [JokeWeather](https://euvhenright.github.io/Weather_API)
+ - 🔭 I’m currently working on Demo Version: [JokeWeather](https://euvhenright.github.io/Weather_API)
 
 - 💬 About **Is a widget that you can use to check the weather today and the actual date. Why is it simple, because many people want to know about the weather now in different cities of our planet. And I depict this process with beautiful backends, icons and one funny programming joke.**
 
@@ -18,7 +18,28 @@
 
 **Structure:** 
 
-![structure](/src/assets/other/structure.png)
+```
+
+public
+  └── styles.css
+src
+  └── assets
+       └── backgrounds
+       └── other
+       └── weather_icons
+  └── components
+        └── api.js
+        └── constants.js
+        └── date.js
+        └── joke.js
+        └── search.js
+        └── weatherView.js
+└── weatherPage.js
+└── app.js
+index.html
+package.json
+README.md
+```
 
 ## Features
 
