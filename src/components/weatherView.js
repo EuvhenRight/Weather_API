@@ -1,22 +1,24 @@
-import { BUTTON_SEARCH_ID, 
-    CITY_SEARCH_ID, 
-    HUMIDITY_ID, 
-    ICON_WEATHER_ID, 
-    TEMPERATURE_CELSIUS_ID, 
-    WIND_SPEED_ID,
-    STATUS_WEATHER_ID, 
-    DATA_ID,
-    INPUT_CITY_ID,
-    MAX_MIN_TEMPERATURE_ID,
-    TEMPERATURE_FEELS_ID } from "./constants.js";
+import {
+  BUTTON_SEARCH_ID,
+  CITY_SEARCH_ID,
+  HUMIDITY_ID,
+  ICON_WEATHER_ID,
+  TEMPERATURE_CELSIUS_ID,
+  WIND_SPEED_ID,
+  STATUS_WEATHER_ID,
+  DATA_ID,
+  INPUT_CITY_ID,
+  MAX_MIN_TEMPERATURE_ID,
+  TEMPERATURE_FEELS_ID,
+} from "./constants.js";
 
 /**
  * Create the main screen
  * @returns {Element}
  */
 export const weatherInterface = () => {
-    const element = document.createElement('div');
-    element.innerHTML = String.raw`
+  const element = document.createElement("div");
+  element.innerHTML = String.raw`
     <div class="weather_top">
         <div class="weather_description">
             <div class="wind">
@@ -41,9 +43,11 @@ export const weatherInterface = () => {
     <div class="weather_bottom">
         <div class="loading">
         <span id="${DATA_ID}">--</span>
+        <div class="search_box">
+        </div>
         <div class="city_input">
             <input type="text" placeholder="City, Country" id="${INPUT_CITY_ID}">
-            <button id="${BUTTON_SEARCH_ID}" class="counter type="button"><i class="fa fa-search fa-1x" aria-hidden="true"></i></button>
+            <button id="${BUTTON_SEARCH_ID}" class="counter" type="button"><i class="fa fa-search fa-1x" aria-hidden="true"></i></button>
         </div>
         </div>
             <div class="week">
@@ -61,6 +65,6 @@ export const weatherInterface = () => {
             </div>
          </div>
     </div>`;
-    
-    return element;
-  };
+
+  return element;
+};
